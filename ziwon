@@ -1,0 +1,35 @@
+#include<stdio.h>
+
+int main() {
+    int A[5][5] = { 0 }; //배열 만들기
+    int value = 1;
+    int k = 0;  //1씩 증가되는 숫자가 저장되는 변수 
+
+    while(1)
+    {
+        for (int i = 0; i < 5; i++) // 배열이므로 1행 1열 부터 시작하지 않고 1행 1열 = 0행 0열 이라고 생각하면 된다.
+        {// 바깥쪽 반복문의 반복변수
+            for (int j = 0; j < 5; j++)
+            {// 안쪽 반복문의 반복변수 
+                if (i + j == k)
+                    A[j][i] = value++; // 0행 0열엔 1이 있고 1행 2열엔 2가 있으므로 
+            }
+        }
+        k++;
+        if (value - 1 == 25) // value는 0이 아닌 1부터 시작했으므로 value -1 이 25가 되면 중단한다. 
+        {
+            break;      //25까지 하면 break
+        }
+    } 
+
+    for (int i = 0; i < 5; i++)
+    {
+        for (int j = 0; j < 5; j++)
+        {
+            printf("%3d", A[i][j]); //배열 출력 
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
