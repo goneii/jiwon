@@ -1,0 +1,31 @@
+#include <stdio.h>
+
+int main() {
+    int C[5][5];    // 배열 선언
+    int N = 25, S = 1, i = -1, j = 0, K = 5;
+    // 초깃값을 설정한다. N은 1~25까지의 일련번호를 생성하고 S는 증감을 나타내고 변수 i와 j는 행과 열을 나타낸다.
+    while (1) {
+        for (int p = 0; p < K; p++) {           
+            i = i + S;      //행 번호를 s만큼 추가한다 
+            C[i][j] = N;
+            N = N - 1;
+        }
+        K = K - 1;  // k값을 감소시킨다.
+        if (K < 0)break;   //k가 54321 까지 진행되었으면 종료
+        for (int p = 0; p < K; p++) {            
+            j = j + S;      //열 번호를 s만큼 추가한다 
+            C[i][j] = N;
+            N = N - 1;
+        }
+        S = S * (-1);   //증감의 역할을 반전시킨다
+    }
+    
+    for (int i = 0; i < 5; i++) {
+        for (int j = 0; j < 5; j++) {
+            printf("%3d ", C[i][j]);    //배열 출력
+        }
+        printf("\n\n");
+    }
+
+    return 0;
+}
